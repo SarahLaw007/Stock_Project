@@ -107,3 +107,59 @@ connection = sqlite3.connect("myTable.db")
 dictMonth = {'01': 'Jan', '02': 'Feb', '03': 'Mar', '04': 'Apr', '05': 'May', '06': 'Jun', '07': 'Jul', '08': 'Aug', '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dec'}
 numDaystoCheck = len(lstDatesToCheck)
 print("Number of Days to check: ", numDaystoCheck)
+
+strRootSite = "https://www.nasdaq.com/dividend-stocks/dividend-calendar.aspx?date="
+from bs4 import BeautifulSoup
+import requests
+daysleft = 0
+lstExDividendDayWeb = []
+#add websites to a list of form https://www.nasdaq.com/dividend-stocks/dividend-calendar.aspx?date=2019-Mar-11
+for exDividendDay in lstDatesToCheck: 
+    print(exDividendDay)
+    year = exDividendDay[0:4]
+    day = exDividendDay[8:10]
+    month = dictMonth[exDividendDay[5:7]]
+    print(year + month + day)
+    site = strRootSite + year + '-'+ month + '-' + day
+    lstExDividendDayWeb.append(site)
+    print(site)
+    
+print(lstExDividendDayWeb)
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
